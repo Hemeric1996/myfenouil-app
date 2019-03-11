@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+
+
+
+
 @section('content')
 <div class="container">
   <ul class="nav justify-content-end">
