@@ -2,6 +2,22 @@
 
 @section('content')
 <div class="container text-center">
+  <ul class="nav justify-content-end">
+    @if (Route::has('login'))
+    <li class="nav-item">
+      @auth
+      <a href="{{ url('/home') }}">Home</a>
+      @else
+      <a href="{{ route('login') }}">Login</a>
+    </li>
+    <li class="nav-item">
+        <!-- @if (Route::has('register'))
+            <a href="{{ route('register') }}">Register</a>
+        @endif -->
+      @endauth
+    @endif
+    </li>
+  </ul>
         <div class="row align-self-center">
           <div class="col-lg-4 col-md-1 col-sm-1 col-1">
 
