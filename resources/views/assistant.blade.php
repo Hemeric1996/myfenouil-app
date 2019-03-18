@@ -18,14 +18,14 @@
         <div class="modal-dialog modal-dialog-scrollable" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Nouvelle publicité</h5>
+              <h5 class="modal-title" id="exampleModalCenterTitle">Nouvelle commande</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
               <div class="container">
-                <h4>Cible de routage</h4>
+                <!-- <h4>Cible de routage</h4>
                 <div class="container">
                   <div class="row pt-3">
                     <div class="col-5">
@@ -98,19 +98,97 @@
                   <div class="row pt-3">
 
                   </div>
-                </div>
-                <div class="pt-4">
-                  <div class="form-group">
-                    <input type="text" class="form-control sans-bas" id="exampleInputTitle" aria-describedby="emailHelp" placeholder="Titre de la publicité">
+                </div> -->
+                <div class="pt-5">
+                  <div class="row">
+                    <div class="col-md-5 col-lg-5">
+                      <div class="form-group">
+                        <input type="text" class="form-control sans-bas" id="exampleInputTitle" aria-describedby="emailHelp" placeholder="Identifiant du client">
+                      </div>
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <textarea placeholder="Le texte de votre publicité" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <div class="row">
+                    <div class="col-md-5 col-lg-5">
+                      <div class="form-group">
+                        <?php
+                          $articles = DB::table('articles')->get();
+                        ?>
+                        <select class="select2 form-control" data-placeholder="Choisissez l'article" name="article">
+                          @foreach ($articles as $article)
+                            <option value="{{$article->numeroArticle}}">{{$article->designation}}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-1 col-lg-1" style="padding-top: 10px;">
+                      <span>X</span>
+                    </div>
+                    <div class="col-md-3 col-lg-3">
+                      <div class="form-group">
+                        <input type="text" class="form-control sans-bas" id="exampleInputTitle" aria-describedby="emailHelp" placeholder="Quantité">
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-lg-3">
+                      <div class="form-group">
+                        <a href="#" class="btn btn-blue-ajout">Ajouter</a>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div class="pt-4">
-                  <label for="avatar">Ajoutez 5 images au plus:</label>
-                  <br>
-                  <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+
+                  <div class="">
+                    <table class="tabadd">
+                      <thead>
+                        <tr>
+                          <th>
+                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select mdl-js-ripple-effect--ignore-events is-upgraded" for="checkbox-all" data-upgraded=",MaterialCheckbox,MaterialRipple">
+                              <input type="checkbox" id="checkbox-all" class="mdl-checkbox__input">
+                              <span class="mdl-checkbox__focus-helper"></span>
+                              <span class="mdl-checkbox__box-outline">
+                                <span class="mdl-checkbox__tick-outline"></span>
+                              </span>
+                              <span class="mdl-checkbox__ripple-container mdl-js-ripple-effect mdl-ripple--center" data-upgraded=",MaterialRipple">
+                                <span class="mdl-ripple">
+                                </span>
+                              </span>
+                            </label>
+                          </th>
+                            <th class="mdl-data-table__cell--non-numeric">Identifiant du client</th>
+                            <th class="mdl-data-table__cell--non-numeric">Désignation Article</th>
+                            <th class="mdl-data-table__cell--non-numeric">Prix</th>
+                            <th class="mdl-data-table__cell--non-numeric">Quantité</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select mdl-js-ripple-effect--ignore-events is-upgraded" for="checkbox-all" data-upgraded=",MaterialCheckbox,MaterialRipple">
+                              <input type="checkbox" id="checkbox-all" class="mdl-checkbox__input">
+                              <span class="mdl-checkbox__focus-helper"></span>
+                              <span class="mdl-checkbox__box-outline">
+                                <span class="mdl-checkbox__tick-outline"></span>
+                              </span>
+                              <span class="mdl-checkbox__ripple-container mdl-js-ripple-effect mdl-ripple--center" data-upgraded=",MaterialRipple">
+                                <span class="mdl-ripple">
+                                </span>
+                              </span>
+                            </label>
+                          </td>
+                          <td style="text-align:left;">
+                            <span class="mdl-data-table__label add-table-content" title="barcode">Add barcode</span>
+                          </td>
+                          <td class="mdl-data-table__cell--non-numeric">
+                            <span class="mdl-data-table__label add-table-content" title="product name">Add product name</span>
+                          </td>
+                          <td class="mdl-data-table__cell--non-numeric">
+                            <span class="mdl-data-table__label add-table-content" title="brand">Add brand</span>
+                          </td>
+                          <td class="mdl-data-table__cell--non-numeric">
+                            <span class="mdl-data-table__label add-table-content" title="details">Add details</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
@@ -166,8 +244,8 @@
                   </div>
                   <div class="modal-body">
                     <div class="container">
-                      <h4>Cible de routage</h4>
-                      <div class="container">
+                      <!-- <h4>Cible de routage</h4> -->
+                      <!-- <div class="container">
                         <div class="row pt-3">
                           <div class="col-5">
                             <h6>Individus déjà client?</h6>
@@ -185,7 +263,7 @@
                         </div>
                         <div class="row pt-3">
                           <div class="col">
-                            <label for="inputState">Cat. socio-professionnelle</label>
+                          /* Tableau add */  <label for="inputState">Cat. socio-professionnelle</label>
                             <select id="inputState" class="form-control">
                               <option value="prospection" selected>Industrie</option>
                               <option value="assiS">Décoration</option>
@@ -239,7 +317,7 @@
                         <div class="row pt-3">
 
                         </div>
-                      </div>
+                      </div> -->
                       <div class="pt-4">
                         <div class="form-group">
                           <input type="text" class="form-control sans-bas" id="exampleInputTitle" aria-describedby="emailHelp" placeholder="Titre de la publicité">
@@ -268,5 +346,5 @@
     </table>
   </div>
 </section>
-
+<script src="{{ asset('js/tableauadd.js') }}" charset="utf-8"></script>
 @endsection
