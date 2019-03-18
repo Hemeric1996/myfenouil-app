@@ -18,6 +18,7 @@ class Commandes extends Migration
           $table->string('numeroArticle');
           $table->integer('prix');
           $table->string('quantite');
+          $table->date('date_cmd');
           $table->string('numeroCmd');
       });
     }

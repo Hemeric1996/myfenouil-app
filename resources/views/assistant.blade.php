@@ -25,85 +25,11 @@
             </div>
             <div class="modal-body">
               <div class="container">
-                <!-- <h4>Cible de routage</h4>
-                <div class="container">
-                  <div class="row pt-3">
-                    <div class="col-5">
-                      <h6>Individus déjà client?</h6>
-                    </div>
-                    <div class="col-7">
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="oui" value="oui">
-                        <label class="form-check-label" for="oui">Oui</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="non" value="non">
-                        <label class="form-check-label" for="non">Non</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row pt-3">
-                    <div class="col">
-                      <label for="inputState">Cat. socio-professionnelle</label>
-                      <select id="inputState" class="form-control">
-                        <option value="prospection" selected>Industrie</option>
-                        <option value="assiS">Décoration</option>
-                        <option value="gestA">Banque</option>
-                        <option value="resD">Edition</option>
-                      </select>
-                    </div>
-                    <div class="col">
-                      <label for="inputState">Tranche d'âge</label>
-                      <select id="inputState" class="form-control">
-                        <option value="prospection" selected>16-25 ans</option>
-                        <option value="assiS">26-45 ans</option>
-                        <option value="gestA">46-68 ans</option>
-                        <option value="resD">69 et plus</option>
-                      </select>
-                    </div>
-                    <div class="col">
-                      <label for="inputState">Dep. de résidence</label>
-                      <select id="inputState" class="form-control">
-                        <option value="prospection" selected>Evry</option>
-                        <option value="assiS">Paris</option>
-                        <option value="gestA">Bordeaux</option>
-                        <option value="resD">Caen</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <h4 class="pt-4">Méthode d'envoie de la publicité</h4>
-                <div class="container">
-                  <div class="row pt-3">
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" id="mail" value="mail">
-                      <label class="form-check-label" for="mail">Mail</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" id="sms" value="sms">
-                      <label class="form-check-label" for="sms">SMS</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" id="papier" value="papier">
-                      <label class="form-check-label" for="papier">Catalogue Papier</label>
-                    </div>
-                    <div class="form-check-inline">
-                      <select id="inputState" class="form-control">
-                        <option value="prospection" selected>Moyenne qualité d'impression</option>
-                        <option value="assiS">Bonne qualité d'impression</option>
-                        <option value="gestA">Faible qualité d'impression</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="row pt-3">
-
-                  </div>
-                </div> -->
                 <div class="pt-5">
                   <div class="row">
                     <div class="col-md-5 col-lg-5">
                       <div class="form-group">
-                        <input type="text" class="form-control sans-bas" id="exampleInputTitle" aria-describedby="emailHelp" placeholder="Identifiant du client">
+                        <input type="text" class="form-control sans-bas" name="id_client" id="id_client" aria-describedby="emailHelp" placeholder="Identifiant du client" required>
                       </div>
                     </div>
                   </div>
@@ -113,7 +39,7 @@
                         <?php
                           $articles = DB::table('articles')->get();
                         ?>
-                        <select class="select2 form-control" data-placeholder="Choisissez l'article" name="article">
+                        <select class="select2 form-control" data-placeholder="Choisissez l'article" id="article" name="article">
                           @foreach ($articles as $article)
                             <option value="{{$article->numeroArticle}}">{{$article->designation}}</option>
                           @endforeach
@@ -125,12 +51,12 @@
                     </div>
                     <div class="col-md-3 col-lg-3">
                       <div class="form-group">
-                        <input type="text" class="form-control sans-bas" id="exampleInputTitle" aria-describedby="emailHelp" placeholder="Quantité">
+                        <input type="text" class="form-control sans-bas" name="quantite" id="quantite" aria-describedby="emailHelp" placeholder="Quantité">
                       </div>
                     </div>
                     <div class="col-md-3 col-lg-3">
                       <div class="form-group">
-                        <a href="#" class="btn btn-blue-ajout">Ajouter</a>
+                        <a id="add" href="#" class="btn btn-blue-ajout">Ajouter</a>
                       </div>
                     </div>
                   </div>
@@ -244,80 +170,6 @@
                   </div>
                   <div class="modal-body">
                     <div class="container">
-                      <!-- <h4>Cible de routage</h4> -->
-                      <!-- <div class="container">
-                        <div class="row pt-3">
-                          <div class="col-5">
-                            <h6>Individus déjà client?</h6>
-                          </div>
-                          <div class="col-7">
-                            <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="oui" value="oui">
-                              <label class="form-check-label" for="oui">Oui</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="non" value="non">
-                              <label class="form-check-label" for="non">Non</label>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row pt-3">
-                          <div class="col">
-                          /* Tableau add */  <label for="inputState">Cat. socio-professionnelle</label>
-                            <select id="inputState" class="form-control">
-                              <option value="prospection" selected>Industrie</option>
-                              <option value="assiS">Décoration</option>
-                              <option value="gestA">Banque</option>
-                              <option value="resD">Edition</option>
-                            </select>
-                          </div>
-                          <div class="col">
-                            <label for="inputState">Tranche d'âge</label>
-                            <select id="inputState" class="form-control">
-                              <option value="prospection" selected>16-25 ans</option>
-                              <option value="assiS">26-45 ans</option>
-                              <option value="gestA">46-68 ans</option>
-                              <option value="resD">69 et plus</option>
-                            </select>
-                          </div>
-                          <div class="col">
-                            <label for="inputState">Dep. de résidence</label>
-                            <select id="inputState" class="form-control">
-                              <option value="prospection" selected>Evry</option>
-                              <option value="assiS">Paris</option>
-                              <option value="gestA">Bordeaux</option>
-                              <option value="resD">Caen</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <h4 class="pt-4">Méthode d'envoie de la publicité</h4>
-                      <div class="container">
-                        <div class="row pt-3">
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="mail" value="mail">
-                            <label class="form-check-label" for="mail">Mail</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="sms" value="sms">
-                            <label class="form-check-label" for="sms">SMS</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="papier" value="papier">
-                            <label class="form-check-label" for="papier">Catalogue Papier</label>
-                          </div>
-                          <div class="form-check-inline">
-                            <select id="inputState" class="form-control">
-                              <option value="prospection" selected>Moyenne qualité d'impression</option>
-                              <option value="assiS">Bonne qualité d'impression</option>
-                              <option value="gestA">Faible qualité d'impression</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="row pt-3">
-
-                        </div>
-                      </div> -->
                       <div class="pt-4">
                         <div class="form-group">
                           <input type="text" class="form-control sans-bas" id="exampleInputTitle" aria-describedby="emailHelp" placeholder="Titre de la publicité">
