@@ -26,39 +26,45 @@
             <div class="modal-body">
               <div class="container">
                 <div class="pt-5">
-                  <div class="row">
-                    <div class="col-md-5 col-lg-5">
-                      <div class="form-group">
-                        <input type="text" class="form-control sans-bas" name="id_client" id="id_client" aria-describedby="emailHelp" placeholder="Identifiant du client" required>
+                  <form class="" action="" method="post">
+                    @csrf
+                    <div class="row">
+                      <div class="col-md-5 col-lg-5">
+                        <div class="form-group">
+                          <input type="text" class="form-control sans-bas" name="id_client" id="id_client" aria-describedby="emailHelp" placeholder="Identifiant du client" required>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-5 col-lg-5">
-                      <div class="form-group">
-                        <?php
-                          $articles = DB::table('articles')->get();
-                        ?>
-                        <select class="select2 form-control" data-placeholder="Choisissez l'article" id="article" name="article">
-                          @foreach ($articles as $article)
-                            <option value="{{$article->numeroArticle}}">{{$article->designation}}</option>
-                          @endforeach
-                        </select>
+                    <div class="row">
+                      <div class="col-md-3 col-lg-5">
+                        <div class="form-group">
+                          <?php
+                            $articles = DB::table('articles')->get();
+                          ?>
+                          <select class="select2 form-control" data-placeholder="Choisissez l'article" id="article" name="article">
+                            @foreach ($articles as $article)
+                              <option class="class_{{$article->numeroArticle}}" value="{{$article->numeroArticle}}">{{$article->designation}}</option>
+                            @endforeach
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-1 col-lg-1" style="padding-top: 10px;">
+                        <span>X</span>
+                      </div>
+                      <div class="col-md-3 col-lg-3">
+                        <div class="form-group">
+                          <input type="text" class="form-control sans-bas" name="quantite" id="quantite" aria-describedby="emailHelp" placeholder="Quantité">
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-lg-3">
+                        <div class="form-group">
+                          <!-- <button class="btn btn-blue-ajout" id="add" type="submit">Ajouter</button> -->
+                          <a id="add" href="#" class="btn btn-blue-ajout">Ajouter</a>
+                        </div>
                       </div>
                     </div>
-                    <div class="col-md-1 col-lg-1" style="padding-top: 10px;">
-                      <span>X</span>
-                    </div>
-                    <div class="col-md-3 col-lg-3">
-                      <div class="form-group">
-                        <input type="text" class="form-control sans-bas" name="quantite" id="quantite" aria-describedby="emailHelp" placeholder="Quantité">
-                      </div>
-                    </div>
-                    <div class="col-md-3 col-lg-3">
-                      <div class="form-group">
-                        <a id="add" href="#" class="btn btn-blue-ajout">Ajouter</a>
-                      </div>
-                    </div>
+                  </form>
+                  <div class="message_box" style="margin:10px 0px;">
                   </div>
 
                   <div class="">
@@ -66,7 +72,7 @@
                       <thead>
                         <tr>
                           <th>
-                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select mdl-js-ripple-effect--ignore-events is-upgraded" for="checkbox-all" data-upgraded=",MaterialCheckbox,MaterialRipple">
+                            <!-- <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select mdl-js-ripple-effect--ignore-events is-upgraded" for="checkbox-all" data-upgraded=",MaterialCheckbox,MaterialRipple">
                               <input type="checkbox" id="checkbox-all" class="mdl-checkbox__input">
                               <span class="mdl-checkbox__focus-helper"></span>
                               <span class="mdl-checkbox__box-outline">
@@ -76,7 +82,7 @@
                                 <span class="mdl-ripple">
                                 </span>
                               </span>
-                            </label>
+                            </label> -->
                           </th>
                             <th class="mdl-data-table__cell--non-numeric">Identifiant du client</th>
                             <th class="mdl-data-table__cell--non-numeric">Désignation Article</th>
@@ -84,34 +90,8 @@
                             <th class="mdl-data-table__cell--non-numeric">Quantité</th>
                           </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select mdl-js-ripple-effect--ignore-events is-upgraded" for="checkbox-all" data-upgraded=",MaterialCheckbox,MaterialRipple">
-                              <input type="checkbox" id="checkbox-all" class="mdl-checkbox__input">
-                              <span class="mdl-checkbox__focus-helper"></span>
-                              <span class="mdl-checkbox__box-outline">
-                                <span class="mdl-checkbox__tick-outline"></span>
-                              </span>
-                              <span class="mdl-checkbox__ripple-container mdl-js-ripple-effect mdl-ripple--center" data-upgraded=",MaterialRipple">
-                                <span class="mdl-ripple">
-                                </span>
-                              </span>
-                            </label>
-                          </td>
-                          <td style="text-align:left;">
-                            <span class="mdl-data-table__label add-table-content" title="barcode">Add barcode</span>
-                          </td>
-                          <td class="mdl-data-table__cell--non-numeric">
-                            <span class="mdl-data-table__label add-table-content" title="product name">Add product name</span>
-                          </td>
-                          <td class="mdl-data-table__cell--non-numeric">
-                            <span class="mdl-data-table__label add-table-content" title="brand">Add brand</span>
-                          </td>
-                          <td class="mdl-data-table__cell--non-numeric">
-                            <span class="mdl-data-table__label add-table-content" title="details">Add details</span>
-                          </td>
-                        </tr>
+                      <tbody id="yourcmd">
+
                       </tbody>
                     </table>
                   </div>
@@ -198,5 +178,117 @@
     </table>
   </div>
 </section>
-<script src="{{ asset('js/tableauadd.js') }}" charset="utf-8"></script>
+@endsection
+
+@section('js')
+<script type="text/javascript">
+  $(document).ready(function(){
+    // var etat = document.getElementById('exampleModalScrollable').getAttribute('class');
+    // console.log(etat);
+    var delay = 2000;
+    var id_client = $("#id_client").val();
+    var article = $('#article').val();
+    var designation_longue = document.getElementsByClassName('class_'+article);
+    var designation_crt = designation_longue[0];
+    var designation = designation_crt.innerText || designation_crt.textContent
+    console.log(designation);
+     console.log(article);
+    var quantite = $("#quantite").val();
+    var commande = {
+      id_client: '',
+      article: '',
+      prix: '',
+      quantite: '',
+    };
+    var commandes = [];
+    var prix = '';
+    $("#id_client").change(function(){
+      var id_clienttemp = $("#id_client").val();
+      id_client=id_clienttemp;
+    });
+    $("#article").change(function(){
+      var articletemp = $("#article").val();
+      article = articletemp;
+    });
+    $("#quantite").change(function(){
+      var quantitetemp = $("#quantite").val();
+      quantite = quantitetemp;
+    });
+    $("#add").click(function(){
+      if (id_client=="" || article=="" || quantite=="") {
+          alert("Veuillez remplir tous les champs");
+          console.log(article);
+      }else {
+        var designation_longue = document.getElementsByClassName('class_'+article);
+        var designation_crt = designation_longue[0];
+        var designation = designation_crt.innerText || designation_crt.textContent;
+        console.log(designation);
+        console.log(id_client);
+        console.log(article);
+        console.log(quantite);
+        commande = {
+          id_client: id_client,
+          article: article,
+          prix: '',
+          quantite: quantite,
+        };
+        // console.log(commande);
+        // console.log(prix);
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
+          }
+        })
+        $.post("{{route ('addelem')}}", commande, function(data) {
+          // alert(data);
+          commande.prix = data;
+          // prix = data;
+          console.log(prix);
+          commandes.push(commande);
+          // console.log(commandes);
+          console.log(commandes);
+          var action = "<td>\
+                <label class=\"mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select mdl-js-ripple-effect--ignore-events is-upgraded\" for=\"checkbox-all\" data-upgraded=\",MaterialCheckbox,MaterialRipple\">\
+                  <input type=\"checkbox\" id=\"checkbox-all\" class=\"mdl-checkbox__input\">\
+                  <span class=\"mdl-checkbox__focus-helper\"></span>\
+                  <span class=\"mdl-checkbox__box-outline\">\
+                    <span class=\"mdl-checkbox__tick-outline\"></span>\
+                  </span>\
+                  <span class=\"mdl-checkbox__ripple-container mdl-js-ripple-effect mdl-ripple--center\" data-upgraded=\",MaterialRipple\">\
+                    <span class=\"mdl-ripple\">\
+                    </span>\
+                  </span>\
+                </label>\
+              </td>";
+          // var action = "<td><button class='del'>X</button></td>";
+              var identifiant = "<td style=\"text-align:left;\">\
+                <span class=\"mdl-data-table__label add-table-content\" title=\"barcode\">" + id_client + "</span>\
+              </td>";
+              var designationArt = "<td class=\"mdl-data-table__cell--non-numeric\">\
+                <span class=\"mdl-data-table__label add-table-content\" title=\"product name\">" + designation + "</span>\
+              </td>";
+        			var thePrice = "<td class=\"mdl-data-table__cell--non-numeric\">\
+                <span class=\"mdl-data-table__label add-table-content\" title=\"brand\">" + commande.prix + "</span>\
+              </td>"
+        			var theQuantity = "<td class=\"mdl-data-table__cell--non-numeric\">\
+                <span class=\"mdl-data-table__label add-table-content\" title=\"details\">" + quantite + "</span>\
+              </td>"
+
+              var lacmd = action + identifiant + designationArt + thePrice + theQuantity;
+        			$("#yourcmd").append("<tr>" + lacmd +  "</tr>");
+        });
+
+      };
+    });
+    $(".mdl-checkbox").click(function(){
+      var _tableRow = $(this).parents("tr:first");
+      if ($(this).hasClass("is-checked") === false) {
+        _tableRow.addClass("is-selected");
+      } else {
+        _tableRow.removeClass("is-selected");
+      }
+    });
+
+  });
+</script>
 @endsection

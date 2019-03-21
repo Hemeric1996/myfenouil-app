@@ -19,5 +19,7 @@ Route::get('/', 'WelcomeController@index')->name('welcome');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/home', 'HomeController@add')->name('addelem');
+// Route::get('/home/add', 'HomeController@index');
 // Route::get('/home', 'HomeController@index')->name('login');
 // Route::get('/prospection', 'HomeController@index')->name('prospection');

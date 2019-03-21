@@ -300,3 +300,29 @@ tbody td {
     padding-left: 18px;
     box-sizing: border-box;
 }
+
+.mdl-data-table tr.is-selected .mdl-data-table__label {
+  font-weight: 500;
+  color: rgba(0, 0, 0, .45) !important;
+}
+
+.mdl-data-table__row--selectable tr:hover,
+.mdl-data-table__row--selectable tr:active,
+.mdl-data-table__row--selectable tr.active {
+  background: #f5f5f5;
+}
+
+.mdl-dialog__addContent .mdl-dialog__actions {
+  padding-top: 0;
+}
+
+.mdl-dialog__addContent {
+  text-align: left;
+  width: 320px;
+  height: 180px;
+  display: block;
+  position: absolute;
+  background: #fafafa;
+  margin-top: -14px;
+  z-index: 99;
+}
