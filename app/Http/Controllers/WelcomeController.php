@@ -30,6 +30,13 @@ class WelcomeController extends Controller
     if (Auth::user()->departement == 'assistant') {
       return view('assistant');
     }
+    if (Auth::user()->departement == 'responsable') {
+      return view('responsable');
+    }
+
+    if (Auth::user()->departement == 'gestionnaire') {
+      return view('gestionnaire');
+    }
       // return view('prospection');
   }
 }

@@ -18,111 +18,115 @@
         <div class="modal-dialog modal-dialog-scrollable" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Nouvelle publicité</h5>
+              <h5 class="modal-title" id="exampleModalCenterTitle">Nouvelle publicité : Cible de routage</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
-              <div class="container">
-                <h4>Cible de routage</h4>
-                <div class="container">
-                  <div class="row pt-3">
-                    <div class="col-5">
-                      <h6>Individus déjà client?</h6>
-                    </div>
-                    <div class="col-7">
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="oui" value="oui">
-                        <label class="form-check-label" for="oui">Oui</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="non" value="non">
-                        <label class="form-check-label" for="non">Non</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row pt-3">
-                    <div class="col">
-                      <label for="inputState">Cat. socio-professionnelle</label>
-                      <select id="inputState" class="form-control">
-                        <option value="prospection" selected>Industrie</option>
-                        <option value="assiS">Décoration</option>
-                        <option value="gestA">Banque</option>
-                        <option value="resD">Edition</option>
-                      </select>
-                    </div>
-                    <div class="col">
-                      <label for="inputState">Tranche d'âge</label>
-                      <select id="inputState" class="form-control">
-                        <option value="prospection" selected>16-25 ans</option>
-                        <option value="assiS">26-45 ans</option>
-                        <option value="gestA">46-68 ans</option>
-                        <option value="resD">69 et plus</option>
-                      </select>
-                    </div>
-                    <div class="col">
-                      <label for="inputState">Dep. de résidence</label>
-                      <select id="inputState" class="form-control">
-                        <option value="prospection" selected>Evry</option>
-                        <option value="assiS">Paris</option>
-                        <option value="gestA">Bordeaux</option>
-                        <option value="resD">Caen</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <h4 class="pt-4">Méthode d'envoie de la publicité</h4>
-                <div class="container">
-                  <div class="row pt-3">
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" id="mail" value="mail">
-                      <label class="form-check-label" for="mail">Mail</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" id="sms" value="sms">
-                      <label class="form-check-label" for="sms">SMS</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" id="papier" value="papier">
-                      <label class="form-check-label" for="papier">Catalogue Papier</label>
-                    </div>
-                    <div class="form-check-inline">
-                      <select id="inputState" class="form-control">
-                        <option value="prospection" selected>Moyenne qualité d'impression</option>
-                        <option value="assiS">Bonne qualité d'impression</option>
-                        <option value="gestA">Faible qualité d'impression</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="row pt-3">
 
+          <div class="modal-body">
+           <div class="container">
+                <div class="pt-5">
+                  <form class="" action="" method="post">
+                    @csrf
+                    <div class="row">
+
+                  <div class="col-md-4 col-lg-4">
+                    <select class="select2 form-control" data-placeholder="Catégorie socio-professionnelle" id="categorie" name="categorie">
+                        <option value="">Catégorie socio-pro.</option>
+                        <option value="prospect" name="prospect">Prospect</option>
+                        <option value="client" name="client">Client</option>
+                        <option value="client_interdit" name="client_interdit">Client interdit</option>
+                    </select>
                   </div>
+
+                  <div class="col-md-4 col-lg-4">
+                    <select class="select2 form-control" data-placeholder="Tranche d'âge" id="age" name="age">
+                        <option value="">Tranche d'âge</option>
+                        <option value="16-25 ans" name="16-25 ans">16-25 ans</option>
+                        <option value="26-45 ans" name="26-45 ans">26-45 ans</option>
+                        <option value="46-68 ans" name="46-68 ans">46-68 ans</option>
+                        <option value="69 ans et plus" name="69 ans et plus">69 ans et plus</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-4 col-lg-4">
+                        <select class="select2 form-control" data-placeholder="Département" id="departement" name="departement">
+                            <option value="">Département</option>
+                            <option value="Alsace" name="Alsace">Alsace</option>
+                            <option value="Aquitaine" name="Aquitaine">Aquitaine</option>
+                            <option value="Auvergne" name="Auvergne">Auvergne</option>
+                            <option value="Basse-Normandie" name="Basse-Normandie">Basse-Normandie</option>
+                            <option value="Bourgogne" name="Bourgogne">Bourgogne</option>
+                            <option value="Bretagne" name="Bretagne">Bretagne</option>
+                            <option value="Centre" name="Centre">Centre</option>
+                            <option value="Champagne-Ardenne" name="Champagne-Ardenne">Champagne-Ardenne</option>
+                            <option value="Corse" name="Corse">Corse</option>
+                            <option value="Franche-Comté" name="Franche-Comté">Franche-Comté</option>
+                            <option value="Haute-Normandie" name="Haute-Normandie">Haute-Normandie</option>
+                            <option value="Ile-de-France" name="Ile-de-France">Ile-de-France</option>
+                            <option value="Languedoc-Roussillon" name="Languedoc-Roussillon">Languedoc-Roussillon</option>
+                            <option value="Limousin" name="Limousin">Limousin</option>
+                            <option value="Lorraine" name="Lorraine">Lorraine</option>
+                            <option value="Midi-Pyrénées" name="Midi-Pyrénées">Midi-Pyrénées</option>
+                            <option value="Nord-Pas-de-Calais" name="Nord-Pas-de-Calais">Nord-Pas-de-Calais</option>
+                            <option value="Pays de la Loire" name="Pays de la Loire">Pays de la Loire</option>
+                            <option value="Picardie" name="Picardie">Picardie</option>
+                            <option value="Poitou-Charentes" name="Poitou-Charentes">Poitou-Charentes</option>
+                            <option value="Provence-Alpes-Côte d'Azur" name="Provence-Alpes-Côte d'Azur">Provence-Alpes-Côte d'Azur</option>
+                            <option value="Rhône-Alpes" name="Rhône-Alpes">Rhône-Alpes</option>
+                            <option value="Guadeloupe" name="Guadeloupe">Guadeloupe</option>
+                            <option value="Martinique" name="Martinique">Martinique</option>
+                            <option value="Guyane" name="Guyane">Guyane</option>
+                            <option value="Réunion" name="Réunion">Réunion</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-4 col-lg-4">
+                        <select class="select2 form-control" data-placeholder="Type d'individu" id="type_individu" name="type_individu">
+                            <option value="">Type d'individu</option>
+                            <option value="inscrit" name="inscrit">Inscrit</option>
+                            <option value="non_inscrit" name="non_inscrit">Non inscrit</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-4 col-lg-4">
+                        <select class="select2 form-control" data-placeholder="Méthode d'envoie" id="methode_envoie" name="methode_envoie">
+                            <option value="">Méthode d'envoie</option>
+                            <option value="papier" name="papier">Papier</option>
+                            <option value="email" name="email">Email</option>
+                            <option value="sms" name="sms">SMS</option>
+                            <option value="seo" name="seo">SEO</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-4 col-lg-4">
+                        <input type="text" class="form-control sans-bas" name="titre" id="titre" aria-describedby="emailHelp" placeholder="Titre de la publicité">
+                      </div>
+
+                      <div class="col-md-12 col-lg-12">
+                        <div class="form-group">
+                          <textarea placeholder="Description de la publicité" class="form-control" id="description" name="description" rows="3"></textarea>
+                        </div>
+                      </div>
                 </div>
-                <div class="pt-4">
+                <div class="col-md-12 col-lg-12">
                   <div class="form-group">
-                    <input type="text" class="form-control sans-bas" id="exampleInputTitle" aria-describedby="emailHelp" placeholder="Titre de la publicité">
-                  </div>
-                  <div class="form-group">
-                    <textarea placeholder="Le texte de votre publicité" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <a id="addad" href="#" class="btn btn-blue-ajout float-right">Ajouter</a>
                   </div>
                 </div>
-                <div class="pt-4">
-                  <label for="avatar">Ajoutez 5 images au plus:</label>
-                  <br>
-                  <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-              <button type="button" class="btn btn-primary">Valider</button>
+              
+            </form>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+</div>
+
 <section>
   <!--for demo wrap-->
   <div class="tbl-header">
@@ -142,158 +146,167 @@
       </thead>
     </table>
   </div>
+
   <div class="tbl-content">
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
-          <td>01</td>
-          <td>Table basse de jardin</td>
-          <td>$2.38</td>
-          <td>-0.01</td>
-          <td>-1.36%</td>
-          <td>15-05-2019</td>
-          <td>En attente de validation</td>
+        <?php $publicites = DB::table('publicites')->get(); ?>
+        @foreach ($publicites as $publicite)
+        <tr>
+          <td><?php echo $publicite->idPublicite; ?></td>
+          <td><?php echo $publicite->titre; ?></td>
+          <td><?php echo $publicite->description; ?></td>
+          <td><?php echo $publicite->methode_envoie; ?></td>
+          <td><?php echo $publicite->date_creation; ?></td>
+          <td><?php echo $publicite->date_limite; ?></td>
+          <td><?php echo $publicite->etat; ?></td>
           <td>
             <button type="button" class="btn btn-pro" data-toggle="modal" data-target="#modifier">
               <i class="fas fa-pen-square"></i>
             </button>
-            <div class="modal fade" id="modifier" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-scrollable" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Détails publicité 01</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="container">
-                      <h4>Cible de routage</h4>
-                      <div class="container">
-                        <div class="row pt-3">
-                          <div class="col-5">
-                            <h6>Individus déjà client?</h6>
-                          </div>
-                          <div class="col-7">
-                            <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="oui" value="oui">
-                              <label class="form-check-label" for="oui">Oui</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="non" value="non">
-                              <label class="form-check-label" for="non">Non</label>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row pt-3">
-                          <div class="col">
-                            <label for="inputState">Cat. socio-professionnelle</label>
-                            <select id="inputState" class="form-control">
-                              <option value="prospection" selected>Industrie</option>
-                              <option value="assiS">Décoration</option>
-                              <option value="gestA">Banque</option>
-                              <option value="resD">Edition</option>
-                            </select>
-                          </div>
-                          <div class="col">
-                            <label for="inputState">Tranche d'âge</label>
-                            <select id="inputState" class="form-control">
-                              <option value="prospection" selected>16-25 ans</option>
-                              <option value="assiS">26-45 ans</option>
-                              <option value="gestA">46-68 ans</option>
-                              <option value="resD">69 et plus</option>
-                            </select>
-                          </div>
-                          <div class="col">
-                            <label for="inputState">Dep. de résidence</label>
-                            <select id="inputState" class="form-control">
-                              <option value="prospection" selected>Evry</option>
-                              <option value="assiS">Paris</option>
-                              <option value="gestA">Bordeaux</option>
-                              <option value="resD">Caen</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <h4 class="pt-4">Méthode d'envoie de la publicité</h4>
-                      <div class="container">
-                        <div class="row pt-3">
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="mail" value="mail">
-                            <label class="form-check-label" for="mail">Mail</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="sms" value="sms">
-                            <label class="form-check-label" for="sms">SMS</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="papier" value="papier">
-                            <label class="form-check-label" for="papier">Catalogue Papier</label>
-                          </div>
-                          <div class="form-check-inline">
-                            <select id="inputState" class="form-control">
-                              <option value="prospection" selected>Moyenne qualité d'impression</option>
-                              <option value="assiS">Bonne qualité d'impression</option>
-                              <option value="gestA">Faible qualité d'impression</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="row pt-3">
-
-                        </div>
-                      </div>
-                      <div class="pt-4">
-                        <div class="form-group">
-                          <input type="text" class="form-control sans-bas" id="exampleInputTitle" aria-describedby="emailHelp" placeholder="Titre de la publicité">
-                        </div>
-                        <div class="form-group">
-                          <textarea placeholder="Le texte de votre publicité" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                      </div>
-                      <div class="pt-4">
-                        <label for="avatar">Ajoutez 5 images au plus:</label>
-                        <br>
-                        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Abandonner</button>
-                    <button type="button" class="btn btn-primary">Modifier</button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </td>
           <td>
             <button type="button" class="btn btn-pro" data-toggle="modal" data-target="#supprimer">
               <i class="fas fa-trash-alt"></i>
             </button>
-            <div class="modal fade" id="supprimer" tabindex="-1" role="dialog" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Suppression de publicité</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <p>Êtes vous sur de vouloir supprimer cette publicité?</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Oups, erreur</button>
-                    <button type="button" class="btn btn-primary">Oui, supprimer</button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </td>
-        </tr>
+        @endforeach
       </tbody>
     </table>
   </div>
-  </section>
+</section>
+@endsection
 
-</div>
 
+@section('js')
+<script type="text/javascript">
+  $(document).ready(function(){
+    var delay = 2000;
+    var categorie = $("#categorie").val();
+    var age = $('#age').val();
+    var departement = $("#departement").val();
+    var type_individu = $("#type_individu").val();
+    var methode_envoie = $("#methode_envoie").val();
+    var titre = $("#titre").val();
+    var description = $("#description").val();
+    
+
+    
+    $("#description").change(function(){
+      var descriptiontemp = $("#description").val();
+      description=descriptiontemp;
+    });
+
+    $("#categorie").change(function(){
+      var categorietemp = $("#categorie").val();
+      categorie=categorietemp;
+    });
+
+    $("#age").change(function(){
+      var agetemp = $("#age").val();
+      age = agetemp;
+    });
+
+
+    $("#departement").change(function(){
+      var departementtemp = $("#departement").val();
+      departement = departementtemp;
+    });
+
+    $("#titre").change(function(){
+      var titretemp = $("#titre").val();
+      titre = titretemp;
+    });
+
+    $("#methode_envoie").change(function(){
+      var methode_envoietemp = $("#methode_envoie").val();
+      methode_envoie = methode_envoietemp;
+    });
+
+    $("#type_individu").change(function(){
+      var type_individutemp = $("#type_individu").val();
+      type_individu = type_individutemp;
+    });
+
+
+    //var i = 0 ;
+
+    $("#addad").click(function(){
+      /*console.log(categorie);
+      console.log(age);
+      console.log(departement);
+      console.log(type_individu);
+      console.log(methode_envoie);
+      console.log(titre);
+      console.log(description);*/
+
+      if (categorie=="" || age=="" || departement=="" || type_individu=="" || titre=="" || methode_envoie=="" || description=="") {
+          alert("Veuillez remplir tous les champs");
+      } else {
+          if (methode_envoie=="papier" || methode_envoie=="seo") {
+
+              $.ajax({
+                  headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
+                  },
+                  url:"{{route ('addadsxml')}}",
+                  method:'POST',
+                  data:{
+                      titre:titre,
+                      description:description,
+                      methode_envoie:methode_envoie,
+                      categorie:categorie,
+                      age:age,
+                      departement:departement,
+                      type_individu:type_individu,
+                  },
+                    success: function(data){
+                     window.location = "/";
+                    }
+              });
+          } else if (methode_envoie=="sms"){
+              $.ajax({
+                  headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
+                  },
+                  url:"{{route ('sendmessages')}}",
+                  method:'POST',
+                  data:{
+                     titre:titre,
+                      description:description,
+                      methode_envoie:methode_envoie,
+                      categorie:categorie,
+                      age:age,
+                      departement:departement,
+                      type_individu:type_individu,
+                  },
+                    success: function(data){
+                     window.location = "/";
+                    }
+              });
+          } else{
+            $.ajax({
+                headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
+                },
+                url:"{{route ('sendemails')}}",
+                method:'POST',
+                data:{
+                    titre:titre,
+                      description:description,
+                      methode_envoie:methode_envoie,
+                      categorie:categorie,
+                      age:age,
+                      departement:departement,
+                      type_individu:type_individu,
+                },
+                  success: function(data){
+                   window.location = "/";
+                  }
+            });
+          }
+      }
+    });
+  });
+</script>
 @endsection

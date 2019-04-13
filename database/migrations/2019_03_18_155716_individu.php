@@ -22,6 +22,7 @@ class Individu extends Migration
           $table->string('rue');
           $table->integer('code_postal');
           $table->string('ville');
+          $table->string('departement');
           $table->string('num_phone');
           $table->string('email')->unique();
           $table->string('carac_socio_com');

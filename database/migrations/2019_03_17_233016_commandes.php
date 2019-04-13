@@ -16,10 +16,10 @@ class Commandes extends Migration
       Schema::create('commandes', function (Blueprint $table) {
           $table->string('identifiantClient');
           $table->string('numeroArticle');
-          $table->integer('prix');
+          //$table->integer('prix');
           $table->string('quantite');
-          $table->date('date_cmd');
-          $table->string('numeroCmd');
+          $table->timestamp('date_cmd')->useCurrent();
+          $table->bigIncrements('numeroCmd');
       });
     }
 
